@@ -1,0 +1,25 @@
+# projeto do arquivo do wokflow do git 
+name: TI222
+
+on:
+  push:
+    branches: [ main, dev]
+  
+  workflow_dispatch:
+    inputs: 
+        enviroment:
+          description: Ambientes
+          type: choice
+          required: true
+          default: dev
+          options:
+            - dev
+            - main
+
+jobs:
+  informacao:
+    run-on: ubuntu-latest
+    steps:
+      - name: Mostrar a estrutura de diretorio
+        run: ls -la
+        
