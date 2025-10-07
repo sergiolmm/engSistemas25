@@ -18,7 +18,7 @@ on:
 
 jobs:
   informacao:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Mostrar a estrutura de diretorio
         run: ls -la
