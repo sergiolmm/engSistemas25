@@ -30,5 +30,10 @@ jobs:
           ls -la
           echo "exemplo de listar um diretorio "
           ls -la api || echo "Nao existe o diretorio"
-          
+      - name: Gera saida do github context sem execucao direta
+        run: |
+          echo 'Github Context:'> github_context.txt
+          echo '${{ toJSON(github) }}' .. github_context.txt
+          cat github_context.txt
+              
         
