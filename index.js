@@ -1,15 +1,8 @@
 const express = require('express');
-const { createServer } = require('node:http');
-const { join } = require('node:path');
-const { Server } = require('socket.io');
+//const { createServer } = require('node:http');
+//const { join } = require('node:path');
 
 const app = express();
-const server = createServer(app);
-const io = new Server(server);
-
-
-
-const { getConnection } = require('./db'); // Importa a função de conexão do db.js
 
 const port = 3000; // Escolha a porta que desejar
 
@@ -18,22 +11,7 @@ app.use(express.json());
     // For parsing application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true })); 
     
-/*
-let estado = false;
 
-let con = mysql.createConnection({
-  host: "localhost",
-  user: "sergi3607_node",
-  password: "$fusca99+",
-  database: 'sergi3607_base'
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  estado = true;
-});
-*/
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
