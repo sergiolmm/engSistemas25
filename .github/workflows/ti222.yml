@@ -36,4 +36,23 @@ jobs:
           echo '${{ toJSON(github) }}' .. github_context.txt
           cat github_context.txt
               
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: /  # Define o diretório base para todos os comandos
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+          
+
+      - name: Upload to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir:  /
+          server-dir: /
         
