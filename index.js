@@ -41,6 +41,6 @@ app.get('/j2', (req, res) => {
 
 
 
-server.listen(process.env.PORT , () => {
+var server = app.listen(process.env.PORT , () => {
     console.log(`Servidor a correr em http://localhost:${process.env.PORT}`);
 });
