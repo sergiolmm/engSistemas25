@@ -47,6 +47,7 @@ jobs:
       - name: checkout Code
         uses: actions/checkout@v3    
 
+      # ftp para o site https://www.sergio.dev.br/engsis
       - name: Upload to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
