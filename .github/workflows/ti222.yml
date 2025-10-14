@@ -37,3 +37,24 @@ jobs:
           cat github_context.txt
               
   
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    default:
+      run:
+        working-directory: /  # define o diretorio base 
+
+    steps:
+      - name: checkout Code
+        uses: actions/checkout@v3    
+
+      - name: Upload to FTP
+        uses: SamKirkland/FTP-Deply-Action@4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          #local-dir: /
+          #server-dir: /
+          port: 21
+          protocol: FTP
+          log-level: verbose  
