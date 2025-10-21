@@ -49,7 +49,7 @@ jobs:
         uses: actions/setup-node@v3
        
       - name: Instala Dependencias
-        run: npm Install
+        run: npm install
      # - name: Run Lint
      #   run:
      #      npm run lint
