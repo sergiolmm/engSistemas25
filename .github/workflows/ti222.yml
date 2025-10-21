@@ -49,7 +49,10 @@ jobs:
         uses: actions/setup-node@v3
        
       - name: Instala Dependencias
-        run: npm install
+        run: |
+             npm cache clean --force
+             rm -rf node_modules package-lock.json
+             npm install
      # - name: Run Lint
      #   run:
      #      npm run lint
