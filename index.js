@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 });
 
 // Handle POST requests to the /submit-form endpoint
-app.post('/submit-form', (req, res) => {
+app.post('/engsis/submit-form', (req, res) => {
     const { input1, input2, input3,input4 } = req.body;
 
     console.log('Received form submission:');
