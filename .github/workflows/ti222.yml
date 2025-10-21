@@ -37,26 +37,21 @@ jobs:
           cat github_context.txt
               
   Build_and_test:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: /  # define o diretorio base 
-
-    steps:
-      - name: checkout Code
-        uses: actions/checkout@v3    
+   permissions: write-all
+     runs-on: ubuntu-latest
+     strategy:
+       matrix:
+         node-version: [22.x]
+     steps:
+      - name: Get Code from repository
+        uses: actions/checkout@v3
       - name: Install NodeJS
         uses: actions/setup-node@v3
-       
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: Instala Dependencias
-        run: |
-             npm cache clean --force
-             rm -rf node_modules package-lock.json
-             npm install
-     # - name: Run Lint
-     #   run:
-     #      npm run lint
-      # aqui uma entrada para cada teste
+        run: npm ci
+
       - name: Roda os testes
         run: npm test
 
