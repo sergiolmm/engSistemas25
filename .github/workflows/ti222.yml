@@ -37,8 +37,9 @@ jobs:
           cat github_context.txt
               
   Build_and_test:
-   permissions: write-all
+     permissions: write-all
      runs-on: ubuntu-latest
+
      strategy:
        matrix:
          node-version: [22.x]
