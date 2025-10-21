@@ -64,7 +64,7 @@ jobs:
         if: success() || failure() # roda de qualquer maneira
         with:
           name: JEST tests
-          path: /
+          path: '*.xml'
           reporter: jest-junit
 
   Deploy:
