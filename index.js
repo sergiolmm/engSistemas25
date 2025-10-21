@@ -1,4 +1,6 @@
 
+const utilidades = require('./funcoes');
+
 const express = require('express');
 
 const app = express();
@@ -9,6 +11,8 @@ app.use(express.urlencoded({extended: true}));
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
+
+
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
@@ -26,10 +30,16 @@ app.post('/submit-form', (req, res) => {
     // coloque aqui o calculo da matriz inversa e do determinante 
     // e retorno o seu resultado.
  // Render the 'index.ejs' file and pass the calculated data
+// Chama a função somar do arquivo externo
+    const resultadoSoma = utilidades.matrizInv(input1,input2,input3,input4);
+    console.log('Resultado da soma:', resultadoSoma); // Saída: Resultado da soma: 15
+
    res.render('resp', {
     num1: input1,
     num2: input2,
-    result: input3
+    num3: input3,
+    num4: input4,
+    result: resultadoSoma
     });
     //res.send('Form submitted successfully!' );
 });
