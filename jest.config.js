@@ -195,4 +195,7 @@ const config = {
   // watchman: true,
 };
 
-module.exports = config;
+//module.exports = config;
+module.exports = {
+      reporters: ['default', ['jest-junit', { outputDirectory: 'reports', outputName: 'junit.xml' }]],
+    };
